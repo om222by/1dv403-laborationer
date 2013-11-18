@@ -15,7 +15,7 @@ window.onload = function(){
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
 			
 		var count = 1;
-		count++;
+		count+=1;
 		
 		if (number < secret)
 		{
