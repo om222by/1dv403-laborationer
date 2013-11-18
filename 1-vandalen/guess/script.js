@@ -7,25 +7,21 @@ window.onload = function(){
 	//Math.floor( Math.random() * (max-min)+1 )+min;
     //Math.floor( Math.random() * (100-1)+1) + 1;
     //
-	
+	var count = 0;
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	
 	var guess = function(number){
 		console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
 			
-		var count = 1;
+		
 		count+=1;
 		
-<<<<<<< HEAD
-		if (number < secret)
-=======
 		if (number < 1 || number > 100)
 		{
-			return [false, "Talet är utanför intervallet 1 - 100"];
+			return [false, "Talet är utanför intervallet  - 100"];
 		}
 		else if (number < secret)
->>>>>>> klar med uppgiften "Gisssa hemliga talet"
 		{
 			return [false, "Det hemliga bajs talet är högre!"];
 		}
@@ -38,15 +34,9 @@ window.onload = function(){
 		{
 			return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + count + " gissningar för att hitta det."];
 		}
-<<<<<<< HEAD
-        else (number < 0 || number > 100);
-		{
-			return [false, "Talet är utanför intervallet 0 - 100"];
-=======
 		else
 		{
 			return [false, "Ange ett tal!"];
->>>>>>> klar med uppgiften "Gisssa hemliga talet"
 		}
 		
 
