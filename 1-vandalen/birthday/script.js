@@ -2,16 +2,29 @@
 
 window.onload = function(){
 
-	
 	var birthday = function(date){
 		
-
-
-			// Din kod här.
-
-
-
-
+		if (!isNaN(date))
+        {
+            throw new Error("Ange ditt födelsedatum");
+        }
+        
+        var fdag = new Date(date);
+        fdag.setFullYear(2013);
+        
+        var nutid = Date.now();
+        
+        var dagar = (fdag.getTime() - nutid) / 1000 / 60 / 60 / 24;
+        
+        dagar = Math.ceil(dagar);
+        
+        if (dagar < 0)
+            {
+                return 365 + dagar;
+            }
+            
+        return dagar;
+        
 	};
 	// ------------------------------------------------------------------------------
 
@@ -28,7 +41,7 @@ window.onload = function(){
 		p.classList.remove( "error");
 
 		try {
-			var answer = birthday(input.value) // Läser in texten från textrutan och skickar till funktionen "convertString"
+			var answer = birthday(input.value); // Läser in texten från textrutan och skickar till funktionen "convertString"
 			var message;
 			switch (answer){
 				case 0: message = "Grattis på födelsedagen!";
