@@ -6,8 +6,7 @@ window.onload = function(){
         if(str.length === 0){
             throw new Error("Fy fan vad fel du gjorde");  
         }
-                
-		// Sålänge strängen ej är slut!
+            
 		var newArray = [];
 		var n;
 		for(n = 0; n < str.length; n++){
