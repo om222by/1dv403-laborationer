@@ -23,7 +23,7 @@ window.onload = function(){
 		}
 		else if (number < secret)
 		{
-			return [false, "Det hemliga bajs talet är högre!"];
+			return [false, "Det hemliga talet är högre!"];
 		}
 
 		else if (number > secret)
