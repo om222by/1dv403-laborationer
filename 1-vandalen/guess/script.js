@@ -19,7 +19,7 @@ window.onload = function(){
 		
 		if (number < 1 || number > 100)
 		{
-			return [false, "Talet är utanför intervallet  - 100"];
+			return [false, "Talet är utanför intervallet 1 - 100"];
 		}
 		else if (number < secret)
 		{

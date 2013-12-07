@@ -9,21 +9,21 @@ window.onload = function(){
             throw new Error("Ange ditt födelsedatum");
         }
         
-        var fdag = new Date(date);
-        fdag.setFullYear(2013);
+        var bDay = new Date(date);
+        bDay.setFullYear(2013);
         
         var nutid = Date.now();
         
-        var dagar = (fdag.getTime() - nutid) / 1000 / 60 / 60 / 24;
+        var days = (bDay.getTime() - nutid) / 1000 / 60 / 60 / 24;
         
-        dagar = Math.ceil(dagar);
+        days = Math.ceil(days);
         
-        if (dagar < 0)
+        if (days < 0)
             {
-                return 365 + dagar;
+                return 365 + days;
             }
             
-        return dagar;
+        return days;
         
 	};
 	// ------------------------------------------------------------------------------

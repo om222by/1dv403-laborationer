@@ -4,7 +4,7 @@ window.onload = function(){
 	var convertString = function(str){
 
         if(str.length === 0){
-            throw new Error("Fy fan vad fel du gjorde");  
+            throw new Error("Du måste skriva en text");  
         }
             
 		var newArray = [];
