@@ -12,7 +12,17 @@ var MessageBoard = {
         
         var input = document.querySelector("#rutan");
         var button = document.querySelector("#button");
+        
+        function Empty(element, errorMessage){
+            if(element.value.length === 0){
+                alert(errorMessage);
+                element.focus();
+                element.value.length === 0;
+                return false;
+            }
+        }
         button.addEventListener("click", function(e){
+            
             e.preventDefault();
             var mess = new Message(input.value, new Date());
             that.messages.push(mess);
@@ -22,15 +32,34 @@ var MessageBoard = {
             document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
             
         });
+        document.onkeypress = function(e) {
+                
+                if(e.keyCode === 13 && !e.shiftKey){
+                    /*if(!Empty(input,"Skriv ett meddelande"))
+                    {
+                        return true;
+                    }
+                  */  
+                e.preventDefault();
+                var mess = new Message(input.value, new Date());
+                that.messages.push(mess);
+                console.log(document.getElementById("rutan").value);
+                document.getElementById("rutan").value = "";
+                that.renderMessages();
+                document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
+                }
+            };
         
     },
     
     removeMessages:function(messageID){
-        var deleted = messageID;
-        MessageBoard.messages.splice(messageID, 1);
-        document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
-        this.renderMessages();
-        return MessageBoard.messages;
+        var conf = confirm("Vill du verkligen radera meddelandet");
+        if (conf === true){
+            MessageBoard.messages.splice(messageID, 1);
+            document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
+            this.renderMessages();
+        }
+            return MessageBoard.messages;
     },
     
     
@@ -47,6 +76,7 @@ var MessageBoard = {
     
     renderMessage:function(messageID)
         {
+            var that = this;
             var div = document.querySelector("#chatt");
             var text = document.createElement("p");
             var time = document.createElement("p");
@@ -56,20 +86,18 @@ var MessageBoard = {
             imgClose.src = "1.png";
             imgClose.alt = "close";
             
-            var that = this;
-            imgTime.onclick = function () {
-                alert(that.messages[messageID].getStringDate());
-            };
-            
-            imgClose.onclick = function () {
-                MessageBoard.removeMessages(messageID);
-            };
             text.innerHTML = MessageBoard.messages[messageID].getHTMLText();
             time.innerHTML = MessageBoard.messages[messageID].getDateText();
             div.appendChild(imgTime);
             div.appendChild(imgClose);
             div.appendChild(text);
             div.appendChild(time);
+            imgTime.onclick = function () {
+                alert(that.messages[messageID].getStringDate());
+            };
+            imgClose.onclick = function () {
+                MessageBoard.removeMessages(messageID);
+            };
         }
     
 };
