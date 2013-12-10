@@ -9,6 +9,10 @@ function Message(message, date) {
         message = _text;
     };
     
+    this.getStringDate = function () {
+        return "Inlägget skapades " + date;
+    };
+    
     this.getDate = function () {
         return date;
     };
@@ -26,6 +30,8 @@ Message.prototype.toString = function() {
 Message.prototype.getHTMLText = function() {
     return this.getText().replace(/(\n)/g, '<br />');
 };
+
+
 
 Message.prototype.getDateText = function() {
     

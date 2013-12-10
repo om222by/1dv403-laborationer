@@ -23,6 +23,12 @@ body {
     width: 99%;
 }
 
+#counter:before {
+    display: block;
+    
+    contet: "Antal meddelande:";
+}
+
 p {
     border-bottom: 1px solid black;
     background: grey;

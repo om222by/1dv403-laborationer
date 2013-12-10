@@ -19,7 +19,7 @@ var MessageBoard = {
             console.log(document.getElementById("rutan").value);
             document.getElementById("rutan").value = "";
             that.renderMessages();
-            document.getElementById("counter").innerHTML = MessageBoard.messages.length;
+            document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
             
         });
         
@@ -27,8 +27,8 @@ var MessageBoard = {
     
     removeMessages:function(messageID){
         var deleted = messageID;
-        MessageBoard.messages.splice(0, 1, messageID);
-        document.getElementById("counter").innerHTML = MessageBoard.messages.length;
+        MessageBoard.messages.splice(messageID, 1);
+        document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
         this.renderMessages();
         return MessageBoard.messages;
     },
@@ -41,23 +41,32 @@ var MessageBoard = {
         //renders all messages
         for(var i=0; i < MessageBoard.messages.length; i++){
                 MessageBoard.renderMessage(i);
-            };
+            }
     },
     
-    //starta en overflow-ruta över chatten
+    
     renderMessage:function(messageID)
         {
             var div = document.querySelector("#chatt");
             var text = document.createElement("p");
             var time = document.createElement("p");
             var imgClose = document.createElement("img");
+            var imgTime = document.createElement("img");
+            imgTime.src = "0.png";
             imgClose.src = "1.png";
             imgClose.alt = "close";
+            
+            var that = this;
+            imgTime.onclick = function () {
+                alert(that.messages[messageID].getStringDate());
+            };
+            
             imgClose.onclick = function () {
                 MessageBoard.removeMessages(messageID);
             };
             text.innerHTML = MessageBoard.messages[messageID].getHTMLText();
             time.innerHTML = MessageBoard.messages[messageID].getDateText();
+            div.appendChild(imgTime);
             div.appendChild(imgClose);
             div.appendChild(text);
             div.appendChild(time);
@@ -69,3 +78,4 @@ var MessageBoard = {
 window.onload = function (){
     MessageBoard.init();
 };
+
