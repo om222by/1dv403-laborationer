@@ -24,7 +24,7 @@ var MessageBoard = {
         button.addEventListener("click", function(e){
             
             e.preventDefault();
-            var mess = new Message(input.value, new Date());
+            var mess = new that.Message(input.value, new Date());
             that.messages.push(mess);
             console.log(document.getElementById("rutan").value);
             document.getElementById("rutan").value = "";
@@ -41,7 +41,7 @@ var MessageBoard = {
                     }
                   */  
                 e.preventDefault();
-                var mess = new Message(input.value, new Date());
+                var mess = new this.Message(input.value, new Date());
                 that.messages.push(mess);
                 console.log(document.getElementById("rutan").value);
                 document.getElementById("rutan").value = "";
@@ -53,6 +53,7 @@ var MessageBoard = {
     },
     
     removeMessages:function(messageID){
+        
         var conf = confirm("Vill du verkligen radera meddelandet");
         if (conf === true){
             MessageBoard.messages.splice(messageID, 1);

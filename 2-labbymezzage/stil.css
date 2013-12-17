@@ -26,7 +26,7 @@ body {
 #counter:before {
     display: block;
     
-    contet: "Antal meddelande:";
+    content: "Antal meddelande:";
 }
 
 p {

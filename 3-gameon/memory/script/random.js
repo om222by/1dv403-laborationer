@@ -20,11 +20,11 @@ var RandomGenerator = {
 		var numberOfImages = rows*cols;
 		var maxImageNumber = numberOfImages/2;
 	
-	   	var imgPlace = [];
+        var imgPlace = [];
 	
-	   //Utplacering av bilder i Array
-	   for(var i=0; i<numberOfImages; i++)
-		  imgPlace[i] = 0;
+        //Utplacering av bilder i Array
+        for(var i=0; i<numberOfImages; i++)
+            imgPlace[i] = 0;
 	
 		for(var currentImageNumber=1; currentImageNumber<=maxImageNumber; currentImageNumber++)
 		{		
@@ -33,18 +33,18 @@ var RandomGenerator = {
 			
 			do
 			{
-				if(imageOneOK == false)
+                if(imageOneOK == false)
 				{
 					var randomOne = Math.floor( (Math.random() * (rows*cols-0) + 0) );				
 					
-					if( imgPlace[randomOne] == 0 )
+                    if( imgPlace[randomOne] == 0 )
 					{
 						imgPlace[randomOne] = currentImageNumber;
 						imageOneOK = true;
 					}
 				}
 				
-				if(imageTwoOK == false)
+                if(imageTwoOK == false)
 				{
 					var randomTwo = Math.floor( (Math.random() * (rows*cols-0) + 0) );				
 								

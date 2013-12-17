@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css"></style>
+    </head>
+
+<body>
+    <form autocomplete="on" name="kontaktform" method="post" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php">
+    
+    <legend>Fyll i din betalningsplan</legend>
+    
+    Förnamn:
+    <div id="fnamn">
+    <input type="text" name="firstName" id="firstName" placeholder="Ange ditt förnamn">
+    </div>
+    <br>
+    Efternamn:
+    <div id="enamn">
+    <input type="text" name="lastName" id="lastName" placeholder="Ange ditt efternamn">
+    </div>
+    <br>
+    Postnummer:
+    <div id="postnummer">
+    <input type="text" name="postNumber" id="postNumber" placeholder="Ange ditt postnummer">
+    </div>
+    <br>
+    E-post:
+    <div id="mail">
+    <input type="email" name="email" id="email" placeholder="Ange din e-postadress">
+    </div>
+    <br>
+    Prismodell:
+    <div id="val">
+    <select name="priceModel" id="priceModel">
+        <option name="low" id="low">Låg</option>
+        <option name="middle" id="middle">Medel</option>
+        <option name="high" id="high">Hög</option>
+    </select>
+    </div>
+    <br>
+    <input type="submit" id="submit" value="Genomför köp">
+    </form>
+</body>
+</html>
