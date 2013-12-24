@@ -6,8 +6,8 @@ exist: null,
     validateForm: function (){
         var fname = document.getElementById("firstName");
         var lname = document.getElementById("lastName");
-        var pnummer = document.forms.kontaktform.postNumber.value;
-        var mejl = document.forms.kontaktform.email.value;
+        var pnummer = document.getElementById("postNumber");
+        var mejl = document.getElementById("email");
         var that = this;
 
         fname.onblur = function () {
@@ -40,7 +40,7 @@ exist: null,
         lname.onblur = function () {
             var lptagg, lnamn;
             if(lname.value === null || lname.value === ""){
-            console.log(this.exist);
+            
                 var lDiv = document.getElementById("enamn");
                 
                 if (!this.exist){
@@ -58,15 +58,35 @@ exist: null,
             
             else{
                 var ldivType = document.getElementById("ldelete");
-                console.log(ldivType);
-                //ldivType.parentNode.removeChild(ldivType);
-                //this.exist = null;
+                ldivType.parentNode.removeChild(ldivType);
+                this.exist = null;
             }
         };
         
         pnummer.onblur = function (){
-            
+            var pptagg, pnum;
+            var pval = pnummer.value;
+            var postMatch = /^\d{5}|\d{3}\s?-?\d{2}|SE\d{5}$/g;
+            if (!pval.match(postMatch)){
+                var pDiv = document.getElementById("postnummer");
+                
+                pptagg = document.createElement("p");
+                pnum = document.createTextNode("Du måste ange postnummer i formatet XXXXX");
+                
+                pptagg.setAttribute("id","pdelete");
+                
+                pptagg.appendChild(pnum);
+                pDiv.appendChild(pptagg);
+            }
+            else {
+                var pDivType = document.getElementById("pdelete");
+                pDivType.parentNode.removeChild(pDivType);
+            }
         };
+        
+        /*mejl.onblur = function (){
+            var mailMatch = ^/[0-9a-z.]{1,64}@[a-z]*?\.[a-z]{2,}$;
+        };*/
     }
 };
 

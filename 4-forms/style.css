@@ -1,3 +1,18 @@
+body {
+    background: black;   
+}
+
+form {
+    margin: 0 auto;
+    padding: 10px;
+    width: 50%;
+    background: #994633;
+}
+
 legend {
     font-size: 1.5em;   
+}
+
+a {
+    float: right;
 }
