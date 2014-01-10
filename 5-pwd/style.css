@@ -1,0 +1,68 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+    padding-top: 10px;
+    background: gray;
+}
+
+main {
+    z-index: 10;
+    box-shadow: 10px 10px 15px #000;
+    margin: 0 auto;
+    border: 5px black solid;
+    width: 1024px;
+    height: 640px;
+    background: url("snow.jpg"); /*http://www.wallsave.com/wallpaper/1920x1200/music-note-notewidescreen-and-hi-resolution-stock-p-o-106426.html*/
+    background-size: 1024px 640px;
+}
+
+#desktop {
+    height: 590px;
+    position: relative;
+    borde: white solid 1px;
+}
+
+#menu {
+    margin: 0;
+    position: absolute;
+    top: 605px;
+    background-color: rgba(0,0,0, 0.4);
+    height: 50px;
+    width: 1024px;
+    border-top: solid black 3px;
+}
+
+#imageViewer img{
+    padding: 6px 10px;
+    width: 35px;
+    height: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
