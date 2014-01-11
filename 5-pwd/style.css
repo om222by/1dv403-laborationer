@@ -56,7 +56,62 @@ main {
 }
 
 
+/*POPUPFÖNSTER*/
 
+.popup {
+    background: red;
+    position: relative;
+    left: 50px;
+    top: 50px;
+    border: solid gray 1px;
+    width: 350px;
+    height: 500px;
+}
+
+.windowHeader {
+    color: white;
+    padding: 8px;
+    background: black;
+    position: relative;
+}
+
+.label {
+    position: relative;
+    color: white;
+    float: left;
+}
+
+.labelPic {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: white solid 1px;
+}
+
+.close {
+    border: white 1px solid;
+    border-top: none;
+    border-radius: 2px;
+    margin-right: 5px;
+    padding: 0 10px 2px 10px;
+    float: right;
+}
+
+.layout {
+    overflow-y: auto;
+    background: white;
+    width: 350px;
+    height: 440px;
+    position: relative;
+}
+
+.status {
+    height: 20px;
+    width: 350px;
+    background: #D1E1E8;
+    position: relative;
+    float: left;
+}
 
 
 
