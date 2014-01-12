@@ -1,7 +1,7 @@
 "use strict";
 var Form = {
         
-exist: null,
+    exist: null,
 
     validateForm: function (){
         var fname = document.getElementById("firstName");

@@ -1,6 +1,6 @@
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
+ abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -22,7 +22,7 @@ body {
     background: gray;
 }
 
-main {
+#main {
     z-index: 10;
     box-shadow: 10px 10px 15px #000;
     margin: 0 auto;
@@ -30,7 +30,8 @@ main {
     width: 1024px;
     height: 640px;
     background: url("snow.jpg"); /*http://www.wallsave.com/wallpaper/1920x1200/music-note-notewidescreen-and-hi-resolution-stock-p-o-106426.html*/
-    background-size: 1024px 640px;
+    
+    background-position: center;
 }
 
 #desktop {
@@ -42,7 +43,7 @@ main {
 #menu {
     margin: 0;
     position: absolute;
-    top: 605px;
+    top: 590px;
     background-color: rgba(0,0,0, 0.4);
     height: 50px;
     width: 1024px;
@@ -58,8 +59,10 @@ main {
 
 /*POPUPFÖNSTER*/
 
+/*https://kuler.adobe.com/create/color-wheel/?base=2&rule=Analogous&selected=3&name=My%20Kuler%20Theme&mode=rgb&rgbvalues=0.9,0.9447683826416778,1,0.8190000000000001,0.8836865966250034,0.91,0.9761832363433496,0.9993807549966773,1,0.558,0.62,0.6041865161781734,0.9,1,0.9461924941400411&swatchOrder=0,1,2,3,4*/
+
 .popup {
-    background: red;
+    background: #8E9E9A;
     position: relative;
     left: 50px;
     top: 50px;
@@ -71,17 +74,19 @@ main {
 .windowHeader {
     color: white;
     padding: 8px;
-    background: black;
+    background: #8E9E9A;
     position: relative;
 }
 
 .label {
+    padding-left: 5px;
     position: relative;
     color: white;
     float: left;
 }
 
 .labelPic {
+    float: left;
     position: relative;
     width: 20px;
     height: 20px;
@@ -89,27 +94,32 @@ main {
 }
 
 .close {
-    border: white 1px solid;
-    border-top: none;
-    border-radius: 2px;
     margin-right: 5px;
-    padding: 0 10px 2px 10px;
     float: right;
 }
 
 .layout {
     overflow-y: auto;
-    background: white;
+    background: #D1E1E8;
     width: 350px;
     height: 440px;
     position: relative;
 }
 
 .status {
-    height: 20px;
+    height: 22px;
     width: 350px;
-    background: #D1E1E8;
+    background: white;
     position: relative;
+    float: left;
+}
+
+.ajaxImg {
+    background: rgba(229,241,255,0.8);
+    text-align: center;
+    border: 1px solid #F9FFFF; 
+    margin: 10px;
+    padding: 5px;
     float: left;
 }
 
