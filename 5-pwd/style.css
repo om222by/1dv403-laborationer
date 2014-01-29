@@ -51,6 +51,7 @@ body {
 }
 
 #imageViewer img{
+    float: left;
     padding: 6px 10px;
     width: 35px;
     height: 35px;

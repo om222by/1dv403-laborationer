@@ -10,12 +10,13 @@ function Message(message, date) {
     };
     
     this.getStringDate = function () {
-        return "Inlägget skapades " + date;
+        return "Inlägget skapades " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear() + " klockan: " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     };
     
     this.getDate = function () {
-        return date;
+        return date;//.format("dddd, mmmm, dS, yyyy, h:MM:ss");
     };
+    
     
     this.setDate = function(_date) {
         date = _date;
@@ -24,11 +25,12 @@ function Message(message, date) {
 }
 
 Message.prototype.toString = function() {
-    return this.getText()+" ("+this.getDate()+")";
+    return this.getText() +" (" + this.getDate() + ")";
 };
 
 Message.prototype.getHTMLText = function() {
-    return this.getText().replace(/(\n)/g, '<br />');
+    
+    return this.getText().replace(/[\n\r]/g, '<br />');
 };
 
 

@@ -8,6 +8,7 @@ var PWD = {
         var imgViewer = document.createElement("div");
         var a = document.createElement("a");
         var icon = document.createElement("img");
+        var counter = 0;
         
         menu.setAttribute("id","menu");
         imgViewer.setAttribute("id","imageViewer");
@@ -24,6 +25,11 @@ var PWD = {
         
         a.onclick = function(e){
         
+        counter +=1;
+                if(counter > 1)
+                {
+                    return false;
+                }
                 
                 var labelPic = document.createElement("img");
                 var labelPicP = document.createElement("p");
@@ -66,8 +72,11 @@ var PWD = {
                 popup.appendChild(status);
                 surface.appendChild(popup);
                 
+                
+                
                 closeLink.onclick = function () {
                     surface.removeChild(popup);
+                    counter = 0;
                 };
                 
                 new AjaxCon(url, function (data) {
@@ -122,6 +131,7 @@ var PWD = {
                         }
                         
                         status.removeChild(ajaxLoader);
+                        
                 });
                 return false;
             

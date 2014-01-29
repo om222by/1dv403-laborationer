@@ -16,3 +16,38 @@ legend {
 a {
     float: right;
 }
+
+label {
+    padding-right:50px;
+}
+
+#background {
+    position: fixed;
+    display: block;
+    top: 0;
+    left:0;
+    padding-top: 50px;
+    background: rgba(0,0,0,0.7);
+    visibility: hidden;
+    height:100%;
+    width:100%;
+}
+
+#popup {
+    padding: 10px;
+    visibility: hidden;
+    display: block;
+    background: white;
+    margin: 0 auto ;
+    height: 300px;
+    width: 600px;
+    z-index: 30;
+}
+
+#element {
+    width: 50%;
+}
+
+.errorMessage {
+    float: right;
+}

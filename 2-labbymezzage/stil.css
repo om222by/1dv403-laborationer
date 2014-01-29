@@ -1,24 +1,26 @@
 body {
- background: aqua;
+ background: #A9D8E8;
 }
 
 #textrutan {
     font-family: 'Electrolize', sans-serif;
-    background: purple;
+    background: #A2E2E8;
     width: 40%;
     padding: 15px;
-    border: 1px solid grey;
+    border: 1px solid #D5F1FF;
     margin: 0 auto;
+    box-shadow: 5px 5px 20px #D5F1FF;
 }
 
 #header {
     font-family: 'Metal Mania', cursive;
-    color: red;
+    color: white;
     text-align: center;
     font-size: 2.0em;
 }
 
 #rutan {
+    border-radius: 10px;
     height: 100px;
     width: 99%;
 }
@@ -26,23 +28,46 @@ body {
 #counter:before {
     display: block;
     
-    content: "Antal meddelande:";
-}
-
-p {
-    border-bottom: 1px solid black;
-    background: grey;
 }
 
 #counter {
     float: right;
 }
 
+p {
+    width: 85%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #A9D8E8;
+}
+
+div+p {
+    float: left;
+}
+
+img {
+    padding-top: 5px;
+    float: right;
+}
+
+#messageDiv {
+    
+    padding: 5px;
+    border-bottom: 2px solid #A9D8E8;
+}
+
 #chatt {
-    background: gray;
-    margin: 0 auto;
-    max-height: 400px;
+    border-radius: 15px;
+    background: #E2FAFF;
+    margin-bottom: 10px;
+    height: 400px;
     overflow: auto;
+}
+
+.message {
+    background: white;
+    
 }
 
 

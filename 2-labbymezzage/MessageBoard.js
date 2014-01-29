@@ -6,6 +6,9 @@ var MessageBoard = {
     messages: [],
     
     
+    Empty: false,
+    
+    
     init:function(e)
     {   
         var that = this;
@@ -17,36 +20,46 @@ var MessageBoard = {
             if(element.value.length === 0){
                 alert(errorMessage);
                 element.focus();
-                element.value.length === 0;
+                element.value === null;
                 return false;
             }
+            else {
+                MessageBoard.Empty = true;
+            }
+            
         }
-        button.addEventListener("click", function(e){
+        
+        
+        button.onclick = function(e){
             
-            e.preventDefault();
-            var mess = new that.Message(input.value, new Date());
-            that.messages.push(mess);
-            console.log(document.getElementById("rutan").value);
-            document.getElementById("rutan").value = "";
-            that.renderMessages();
-            document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
-            
-        });
-        document.onkeypress = function(e) {
-                
-                if(e.keyCode === 13 && !e.shiftKey){
-                    /*if(!Empty(input,"Skriv ett meddelande"))
-                    {
-                        return true;
-                    }
-                  */  
+            new Empty(input,"Skriv ett meddelande")
+            if(MessageBoard.Empty){
                 e.preventDefault();
-                var mess = new this.Message(input.value, new Date());
+                var mess = new Message(input.value, new Date());
                 that.messages.push(mess);
                 console.log(document.getElementById("rutan").value);
                 document.getElementById("rutan").value = "";
                 that.renderMessages();
+                document.getElementById("counter").innerHTML = "";
                 document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
+            }
+        };
+        
+        input.onkeypress = function(e) {
+                
+                if(e.keyCode === 13 && !e.shiftKey){
+                    new Empty(input,"Skriv ett meddelande");
+                    
+                    if (MessageBoard.Empty){
+                        e.preventDefault();
+                        var mess = new Message(input.value, new Date());
+                        that.messages.push(mess);
+                        console.log(document.getElementById("rutan").value);
+                        document.getElementById("rutan").value = "";
+                        that.renderMessages();
+                        document.getElementById("counter").innerHTML = "";
+                        document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
+                    }
                 }
             };
         
@@ -57,6 +70,7 @@ var MessageBoard = {
         var conf = confirm("Vill du verkligen radera meddelandet");
         if (conf === true){
             MessageBoard.messages.splice(messageID, 1);
+            document.getElementById("counter").innerHTML = "";
             document.getElementById("counter").innerHTML = ("Antal meddelande: " + MessageBoard.messages.length);
             this.renderMessages();
         }
@@ -70,6 +84,7 @@ var MessageBoard = {
         
         //renders all messages
         for(var i=0; i < MessageBoard.messages.length; i++){
+                
                 MessageBoard.renderMessage(i);
             }
     },
@@ -79,6 +94,8 @@ var MessageBoard = {
         {
             var that = this;
             var div = document.querySelector("#chatt");
+            var message = document.createElement("div");
+            message.setAttribute("id","messageDiv");
             var text = document.createElement("p");
             var time = document.createElement("p");
             var imgClose = document.createElement("img");
@@ -87,12 +104,15 @@ var MessageBoard = {
             imgClose.src = "1.png";
             imgClose.alt = "close";
             
+            
+            
             text.innerHTML = MessageBoard.messages[messageID].getHTMLText();
             time.innerHTML = MessageBoard.messages[messageID].getDateText();
-            div.appendChild(imgTime);
-            div.appendChild(imgClose);
-            div.appendChild(text);
-            div.appendChild(time);
+            message.appendChild(imgClose);
+            message.appendChild(imgTime);
+            message.appendChild(text);
+            message.appendChild(time);
+            div.appendChild(message);
             imgTime.onclick = function () {
                 alert(that.messages[messageID].getStringDate());
             };
