@@ -25,7 +25,7 @@ var Memory = {
         
         
         //funktion som fixar closure-problemet i loopen nedan på nåt sätt
-        var sendToTryCard = function(j) {return function() {Memory.tryCard(j)}};
+        var sendToTryCard = function(j) {return function() {tryCard(j)}};
         
     
         for (var i = 0; i < Memory.memoryBoard.length; i +=1){
