@@ -9,7 +9,7 @@ window.onload = function(){
     //
 	var count = 0;
 	// I denna funktion ska du skriva koden för att hantera "spelet"
-	
+	var count = 0;
 	var guess = function(number){
 		console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.
@@ -25,7 +25,6 @@ window.onload = function(){
 		{
 			return [false, "Det hemliga talet är högre!"];
 		}
-
 		else if (number > secret)
 		{
 			return [false, "Det hemliga talet är lägre!"];
@@ -34,6 +33,12 @@ window.onload = function(){
 		{
 			return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + count + " gissningar för att hitta det."];
 		}
+<<<<<<< HEAD
+=======
+        else (number < 0 || number > 100);
+		{
+			return [false, "Talet är utanför intervallet 0 - 100"];
+>>>>>>> f1594d70066b937e0e0c1e289b71d6015100619b
 		else
 		{
 			return [false, "Ange ett tal!"];

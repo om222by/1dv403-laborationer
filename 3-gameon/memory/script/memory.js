@@ -96,7 +96,7 @@ var Memory = {
         {
             document.body.removeChild(document.getElementById("game_board"));
             document.body.removeChild(document.getElementById("counter"));
-            document.getElementById("you_won").innerHTML = "Grattis! Du vann efter "+ Memory.guesses +" gissningar!";
+            document.getElementById("win").innerHTML = "Grattis! Du vann efter "+ Memory.counter +" gissningar!";
             
         }
         
