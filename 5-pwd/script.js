@@ -23,7 +23,7 @@ var PWD = {
         surface.appendChild(menu);
         
         
-        a.onclick = function(e){
+        a.onclick = function(){
         
         counter +=1;
         
@@ -119,7 +119,7 @@ var PWD = {
                 PWD.setBackground(jsonImages[i].URL, ajaxImageLinks);
                 
             }
-                
+                //sätter ut bilderna
                 for (var x = 0; x < imgCounter.length; x+=1){
                     if (imgCounter[x].className === "ajaxImg") {
                         

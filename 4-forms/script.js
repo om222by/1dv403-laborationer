@@ -3,6 +3,7 @@
 var Validator = {
     
     form: document.getElementById("form"),
+    buyButton: document.getElementById("send"),
     
     firstName: document.getElementById("firstName"),
     lastName: document.getElementById("lastName"),
@@ -44,9 +45,8 @@ var Validator = {
             
         },false);
         
-        
         //kollar om alla fälten är korrekta genom att kalla på en funktion
-        form.onsubmit = alert(submitForm);
+        form.onsubmit = submitForm();
         
         function submitForm () {
             
@@ -141,4 +141,6 @@ var Validator = {
     }
 };
 
-window.onload = Validator.init;
+window.onload = function () {
+    Validator.init();
+}

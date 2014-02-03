@@ -1,12 +1,12 @@
 body {
-    background: black;   
+    background: #C8C8E8;   
 }
 
 form {
     margin: 0 auto;
     padding: 10px;
     width: 600px;
-    background: #994633;
+    background: #EEE8FF;
 }
 
 legend {
@@ -44,16 +44,12 @@ label {
     z-index: 30;
 }
 
-#element {
-    width: 50%;
-}
 
 .errorMessage {
     color:red;
     width:300px;
-    font-size:10pt;
+    font-size:0.8em;
     float:right;
     margin-right:100px;
     margin-top:-2px;
-    border:lime solid 1px;
 }
