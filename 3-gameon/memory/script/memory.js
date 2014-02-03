@@ -2,7 +2,7 @@
 
 var Memory = {
     
-    game_board: document.getElementById("game_board"),
+    game_board: null,
     
     //spelplanen, där de vända kortens "bilder" hamnar
     memoryBoard: [],
@@ -20,12 +20,22 @@ var Memory = {
     
     init: function ()
     {
+        Memory.game_board = document.getElementById("game_board");
         
         Memory.memoryBoard = new RandomGenerator.getPictureArray(4,4);
         
         
         //funktion som fixar closure-problemet i loopen nedan på nåt sätt
-        var sendToTryCard = function(j) {return function() {tryCard(j)}};
+        var sendToTryCard = function(j) {
+            return function() {
+                if (this.classList.contains("turned")){
+                    return null;
+                }
+                else{
+                    tryCard(j);
+                }
+            };
+        };
         
     
         for (var i = 0; i < Memory.memoryBoard.length; i +=1){
@@ -39,6 +49,9 @@ var Memory = {
             
             Memory.cardLink = document.createElement("a");
             Memory.cardLink.setAttribute("class", i);
+            Memory.cardLink.setAttribute("href", "#");
+            
+            //samlar upp alla en och en istället för bara sista
             Memory.cardLink.addEventListener("click", sendToTryCard(i), false);
             
             if(i % 4 === 0){
@@ -48,13 +61,15 @@ var Memory = {
             Memory.cardLink.appendChild(Memory.cardPicture);
             Memory.cardDiv.appendChild(Memory.cardLink);
             
-            game_board.appendChild(Memory.cardDiv);
+            Memory.game_board.appendChild(Memory.cardDiv);
             
         }
         
         function  tryCard (thisCardNumber) {
             
             Memory.clickedCards.push(thisCardNumber);
+            
+            
             
             //vänd valt kort
             var thisCardPicture = document.getElementById(thisCardNumber);
@@ -67,7 +82,7 @@ var Memory = {
                 Memory.checkIfCorrect(Memory.memoryBoard[Memory.clickedCards[0]], Memory.memoryBoard[Memory.clickedCards[1]]);
                 
                 //ökar counter och avmarkerar korten
-                Memory.counter+=1;
+                Memory.counter++;
                 document.getElementById("counter").innerHTML = "Antal gissningar: " + Memory.counter;
                 Memory.clickedCards.length = 0;
             }
@@ -88,7 +103,6 @@ var Memory = {
             }
         };
     
-        
     },
     
     checkIfCorrect: function (card1, card2) {
@@ -102,10 +116,9 @@ var Memory = {
             
             //Låter ParentNoden döda länkarna i barnen
             var link1 = document.getElementsByClassName(Memory.clickedCards[0]);
-            link1.parentNode.removeChild(link1[0]);
-            var link2 = document.getElementsByClassName(Memory.clickedCards[0]);
-            link2.parentNode.removeChild(link2[0]);
-            
+            link1[0].classList.add('turned');
+            var link2 = document.getElementsByClassName(Memory.clickedCards[1]);
+            link2[0].classList.add("turned");
             
         }
         else {

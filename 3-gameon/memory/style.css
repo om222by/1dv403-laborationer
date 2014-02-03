@@ -1,8 +1,14 @@
 .card {
+    position: relative;
     float: left;
     width: 40px;
 }
 
+
 .card.new_row_card {
+    clear: left;
+}
+
+#counter {
     clear: left;
 }
