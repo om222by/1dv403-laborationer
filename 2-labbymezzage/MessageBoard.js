@@ -62,7 +62,6 @@ var MessageBoard = {
                     }
                 }
             };
-        
     },
     
     removeMessages:function(messageID){

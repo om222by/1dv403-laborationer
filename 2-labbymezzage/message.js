@@ -10,11 +10,17 @@ function Message(message, date) {
     };
     
     this.getStringDate = function () {
-        return "Inlägget skapades " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear() + " klockan: " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        
+        function lessThanTen(number)
+        {
+            return(number < 10? "0"+number : number);
+        }
+        return "Inlägget skapades " + date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " klockan: " + lessThanTen(date.getHours()) + ":" + lessThanTen(date.getMinutes()) + ":" + lessThanTen(date.getSeconds());
+        //return lessThanTen(message.getDate().getMinutes());
     };
     
     this.getDate = function () {
-        return date;//.format("dddd, mmmm, dS, yyyy, h:MM:ss");
+        return date;
     };
     
     

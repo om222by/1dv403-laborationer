@@ -4,10 +4,10 @@ var Validator = {
     
     form: document.getElementById("form"),
     
-    firstName: document.getElementsByName("firstName")[0],
+    firstName: document.getElementById("firstName"),
     lastName: document.getElementById("lastName"),
     postNumber: document.getElementById("postNumber"),
-    mailAdress: document.getElementById("email"),
+    email: document.getElementById("email"),
     selectedOption: document.getElementById("priceModel"),
     
     testFirstName: false,
@@ -18,34 +18,35 @@ var Validator = {
 
 
     init: function () {
-        Validator.firstName.addEventListener("blur", function() {
-            console.log("korv")
-            alert("hej");
-            Validator.testFirstName = Validator.validate(Validator.firstName, /^[a-zåäö]{1,}(\-[a-zåäö]{1,})?$/i,
+        
+        firstName.addEventListener("blur", function() {
+            
+            Validator.testFirstName = Validator.validate(firstName, /^[a-zåäö]{1,}(\-[a-zåäö]{1,})?$/i,
             "Du får inte lämna fältet tomt. Du får bara använda bokstäver");
             
         }, false);
-        Validator.lastName.addEventListener("blur", function () {
+        lastName.addEventListener("blur", function () {
             
-            Validator.testLastName = Validator.validate(Validator.lastName, /^[a-zåäö]{1,}(\-[a-zåäö]{1,})?$/i,
+            Validator.testLastName = Validator.validate(lastName, /^[a-zåäö]{1,}(\-[a-zåäö]{1,})?$/i,
             "Du får inte lämna fältet tomt. Du får bara använda korrekta tecken");
             
         },false);
-        Validator.postNumber.addEventListener("blur", function () {
+        postNumber.addEventListener("blur", function () {
             
-            Validator.testPostNumber = Validator.validate(Validator.postNumber,/^[S][E]\s?\d{5}|[S][E]\s?\d{3}\s?-?\d{2}|\d{5}|\d{3}\s?-?\d{2}$/g,
+            Validator.testPostNumber = Validator.validate(postNumber,/^[S][E]\s?\d{5}|[S][E]\s?\d{3}\s?-?\d{2}|\d{5}|\d{3}\s?-?\d{2}$/g,
             "Du får inte lämna fältet tomt. Du får inte ange postnummer i fel format");
             
         },false);
-        Validator.mailAdress.addEventListener("blur", function () {
+        email.addEventListener("blur", function () {
             
-            Validator.testMail = Validator.validate(Validator.mailAdress, /^[0-9a-z.]{2,64}@[a-z]*?\.[a-z]{2,}$/g,
+            Validator.testMail = Validator.validate(email, /^[0-9a-z.]{2,64}@[a-z]*?\.[a-z]{2,}$/g,
             "Du får inte lämna fältet tomt. Du får inte ange mailadressen i ett felaktigt format.");
             
         },false);
         
+        
         //kollar om alla fälten är korrekta genom att kalla på en funktion
-        Validator.form.onsubmit = submitForm;
+        form.onsubmit = alert(submitForm);
         
         function submitForm () {
             
@@ -81,11 +82,11 @@ var Validator = {
 
       var close = document.getElementById("cancel");
       
-      liFirstName.appendChild(document.createTextNode("Förnamn: " + Validator.firstName.value));
-      liLastName.appendChild(document.createTextNode("Efternamn: " + Validator.lastName.value));
-      liPostNumber.appendChild(document.createTextNode("Postnummer:" + Validator.postNumber.value));
-      liMailAdress.appendChild(document.createTextNode("Email: " + Validator.mailAdress.value));
-      liSelectedOption.appendChild(document.createTextNode("Prismodell: " + Validator.selectedOption.options[Validator.selectedOption.selectedIndex].text));
+      liFirstName.appendChild(document.createTextNode("Förnamn: " + firstName.value));
+      liLastName.appendChild(document.createTextNode("Efternamn: " + lastName.value));
+      liPostNumber.appendChild(document.createTextNode("Postnummer:" + postNumber.value));
+      liMailAdress.appendChild(document.createTextNode("Email: " + mailAdress.value));
+      liSelectedOption.appendChild(document.createTextNode("Prismodell: " + selectedOption.options[Validator.selectedOption.selectedIndex].text));
       
       list.appendChild(liFirstName);
       list.appendChild(liLastName);
@@ -103,14 +104,15 @@ var Validator = {
     
     validate: function(input, regex, error) {
         
+        
         //tar bort felmeddelande om det redan finns
         if(input.nextSibling.getAttribute("class") == "errorMessage " + input.name){
             
             var removeThis = input.nextSibling;
-            Validator.form.removeChild(removeThis);
+            form.removeChild(removeThis);
         }
         
-        if(input.value.match(regex)) 
+        else if(input.value.match(regex)) 
         {
             //Om postnumret är godkänt men inte har det format vi vill ha
             if(input.name == "postNumber" && null === input.value.match(/^[0-9]{5}$/))
@@ -131,11 +133,12 @@ var Validator = {
             var messageText = document.createTextNode(error);
             errorMessage.appendChild(messageText);
             
-            Validator.form.insertBefore(errorMessage, input.nextSibling);
+            //sätter in felmeddelandet innan nästa fält
+            form.insertBefore(errorMessage, input.nextSibling);
             
             return false;
         }
     }
 };
 
-window.onload = Validator.init();
+window.onload = Validator.init;

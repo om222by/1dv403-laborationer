@@ -1,56 +1,53 @@
+
 <!doctype html>
 <html>
-    
-    <head>
-        <meta charset="utf-8">
-        <script src="script.js"></script>
-        <!--<link rel="stylesheet" href="style.css" type="text/css"></style>-->
-    </head>
+
+<head>
+    <meta charset="utf-8">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css"></style>
+</head>
 
 <body>
-    <form autocomplete="on" name="kontaktform" id="form" method="post" 
-    action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php">
-    
-    <legend>Fyll i din betalningsplan</legend>
-    
-    <label>Förnamn:</label>
-    <br>
-    <input type="text" name="firstName" placeholder="Ange ditt förnamn">
-    
-    <br>
-    <label>Efternamn:</label>
-    <br>
-    <input type="text" name="lastName" id="lastName" placeholder="Ange ditt efternamn">
-    
-    <br>
-    <label>Postnummer:</label>
-    <br>
-    <input type="text" name="postNumber" id="postNumber" placeholder="XXXXX">
-    
-    <br>
-    <label>E-post:</label>
-    <br>
-    <input type="email" name="email" id="email" placeholder="Ange din e-postadress">
-    
-    <br>
-    <label>Prismodell:</label>
-    <br>
-    <select name="priceModel" id="priceModel">
-        <option name="low" id="low">Låg</option>
-        <option name="middle" id="middle">Medel</option>
-        <option name="high" id="high">Hög</option>
-    </select>
-    <br>
-    <br>
-    <input type="button" id="submit" value="Genomför köp">
-    
-    <div id="background">
-        <div id="popup">
-            
-            <input type="button" id="cancel" value="Avbryt">
-            <input type="submit" id="confirm" value="Bekräfta köp">
+    <form autocomplete="on" name="kontaktform" id="form" method="post"
+          action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php">
+
+        <legend>Fyll i din betalningsplan</legend>
+
+        <label>Förnamn:</label>
+        <br>
+        <input type="text" name="firstName" id="firstName" autofocus placeholder="Ange ditt förnamn"><br />
+        <label>Efternamn:</label>
+        <br>
+        <input type="text" name="lastName" id="lastName" placeholder="Ange ditt efternamn"><br />
+
+        <label>Postnummer:</label>
+        <br>
+        <input type="text" name="postNumber" id="postNumber" placeholder="XXXXX"><br />
+
+        <label>E-post:</label>
+        <br>
+        <input type="email" name="email" id="email" placeholder="Ange din e-postadress"><br />
+
+        <label>Prismodell:</label>
+        <br>
+        <select name="priceModel" id="priceModel">
+            <option name="low" id="low">Låg</option>
+            <option name="middle" id="middle">Medel</option>
+            <option name="high" id="high">Hög</option>
+        </select>
+        <br>
+        <br>
+        
+        <button type="submit" >Skicka</button>
+
+        <div id="background">
+            <div id="popup">
+
+                <input type="button" id="cancel" value="Avbryt">
+                <input type="submit" id="confirm" value="Bekräfta köp">
+            </div>
         </div>
-    </div>
     </form>
 </body>
 </html>
